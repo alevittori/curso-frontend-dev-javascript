@@ -13,6 +13,13 @@
     font-family: 'Quicksand', sans-serif;
   }
 
+  
+  /* estilo para activar o desacticar un menu  */
+
+  .inactive{
+    display: none;
+  }
+
 
   /* ESTILOS DEL MENU PRINCIPAL GRANDE  */
   nav {
@@ -83,7 +90,7 @@
 
   position: absolute;
   top: 60px; /* tamaño del menu principal */
-  right: 0;
+  right: 30px;
 
   width: 100px;
   height: auto;
