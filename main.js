@@ -11,19 +11,19 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')//icono d
 const asideComprasDetail = document.querySelector('.product-detail') // aside que aparece con al descripcion del carrito de compras cuando hacemos click en el carrito
 
 // Esconde o muestra el menu cuando hacemos click en el mail del uduario en la vercion de escritorio 
-const togleDesktopMenu = ()=>{
+const togleDesktopMenu = () => {
     const isCarritoMenuClouse = asideComprasDetail.classList.contains('inactive');
 
-    if(!isCarritoMenuClouse){
+    if (!isCarritoMenuClouse) {
         asideComprasDetail.classList.add('inactive');
     }
     desktopMenuElement.classList.toggle('inactive')
 }
 // creamos la misma funcion para poner la clase incative pero ahora para cuando hagomos clik en el menu hamburguesas
-const toggleMobileMenu = ()=>{
+const toggleMobileMenu = () => {
     const isCarritoMenuClouse = asideComprasDetail.classList.contains('inactive');
 
-    if(!isCarritoMenuClouse){
+    if (!isCarritoMenuClouse) {
         asideComprasDetail.classList.add('inactive');
     }
 
@@ -32,14 +32,14 @@ const toggleMobileMenu = ()=>{
 }
 
 // funcion para poner la clase inactive al icono del carrito 
-const toggleCarritoIcon = ()=>{
-    
+const toggleCarritoIcon = () => {
+
     const isMobileMenuElementCLouse = mobileMenuElement.classList.contains('inactive');
     const isDesktopMenuClose = desktopMenuElement.classList.contains('inactive');
-    if(!isMobileMenuElementCLouse ){
+    if (!isMobileMenuElementCLouse) {
         mobileMenuElement.classList.add('inactive');
     }
-    if(!isDesktopMenuClose){
+    if (!isDesktopMenuClose) {
         desktopMenuElement.classList.add('inactive')
     }
 
@@ -57,4 +57,54 @@ const toggleCarritoIcon = ()=>{
 
 navbar_email_element.addEventListener('click', togleDesktopMenu); // escuchamos si el usuario hace click en el mail de l usaurio en la barra de navegacion
 hamburguerIconElement.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click',toggleCarritoIcon);
+menuCarritoIcon.addEventListener('click', toggleCarritoIcon);
+
+//array de la lista de producto cuando se hiciera una consulta al servidor pidiendo la lista de productos, que luego cargaremos en el html
+const productList = [];
+
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+    name: 'Escritorio',
+    price: 180,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+    name: 'Computador',
+    price: 200,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+
+const cardProducContainerElement = document.querySelector('.cards-container');
+
+
+// for of para los elementos 
+for (product of productList) {
+    const card = document.createRange().createContextualFragment(`
+    <div class="product-card">
+        <img src= ${product.image} alt="">
+         <div class="product-info">
+            <div>
+                <p>${product.price}</p>
+                <p>${product.name}</p>
+            </div>
+        <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+        </figure>
+        </div>
+    </div>
+    `)
+
+    cardProducContainerElement.append(card)
+}
+
+console.log(productList)
+
+// for in para los indices del arreglo 
+for (indice in productList) {
+    console.log(indice)
+}
+
