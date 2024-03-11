@@ -8,7 +8,7 @@ const mobileMenuElement = document.querySelector('.mobile-menu'); // Seleccionam
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')//icono del carrito de compras
 
-const asideComprasDetail = document.querySelector('.product-detail') // aside que aparece con al descripcion del carrito de compras cuando hacemos click en el carrito
+const asideComprasDetail = document.querySelector('#shoppingCartContainer') // aside que aparece con al descripcion del carrito de compras cuando hacemos click en el carrito
 
 // Esconde o muestra el menu cuando hacemos click en el mail del uduario en la vercion de escritorio 
 const togleDesktopMenu = () => {
@@ -89,6 +89,7 @@ for (indice in productList) {
     console.log(indice)
 }
 
+// FUNCION PARA CARGAR LA LISTA DE PRODUCTOS A LA PAGINA A PARTIR DE UN ARRAY DE PRODUCTOS
 function renderProductList(arr){
     // for of para los elementos 
     for (product of arr) {
