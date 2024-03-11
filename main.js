@@ -81,25 +81,6 @@ productList.push({
 const cardProducContainerElement = document.querySelector('.cards-container');
 
 
-// for of para los elementos 
-for (product of productList) {
-    const card = document.createRange().createContextualFragment(`
-    <div class="product-card">
-        <img src= ${product.image} alt="">
-         <div class="product-info">
-            <div>
-                <p>${product.price}</p>
-                <p>${product.name}</p>
-            </div>
-        <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
-        </div>
-    </div>
-    `)
-
-    cardProducContainerElement.append(card)
-}
 
 console.log(productList)
 
@@ -108,3 +89,27 @@ for (indice in productList) {
     console.log(indice)
 }
 
+function renderProductList(arr){
+    // for of para los elementos 
+    for (product of arr) {
+    
+        const card = document.createRange().createContextualFragment(`
+        <div class="product-card">
+            <img src= ${product.image} alt="">
+             <div class="product-info">
+                <div>
+                    <p>${product.price}</p>
+                    <p>${product.name}</p>
+                </div>
+            <figure>
+                <img src="./icons/bt_add_to_cart.svg" alt="">
+            </figure>
+            </div>
+        </div>
+        `)
+    
+        cardProducContainerElement.append(card)
+    }
+    
+}
+renderProductList(productList)
